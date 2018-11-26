@@ -1,4 +1,4 @@
-# React-Draggable
+# React-Draggable-Elements
 
 [![TravisCI Build Status](https://travis-ci.org/mzabriskie/react-draggable.svg?branch=master)](https://travis-ci.org/mzabriskie/react-draggable)
 [![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true)](https://ci.appveyor.com/project/mzabriskie/react-draggable)
@@ -7,6 +7,8 @@
 [![version](https://img.shields.io/npm/v/react-draggable.svg)]()
 
 A simple component for making elements draggable.
+
+**[IMPORTANT]** This is a fork of original React-Draggable lib that adds new PositionedDraggable component which is basically a clone of Draggable component with the exception that it won't default on initial position of container (0,0) but instead will allow to position it by the client code. On the initial drag the position will be set to its current position.
 
 ```js
 <Draggable>
