@@ -2149,7 +2149,7 @@
 	      if (!_this.state.dragged && !_this.props.position) {
 	        position = getCurrentPosition(_this);
 	      }
-	      _this.setState(_extends({ dragging: true, dragged: true }, position, { styleFix: { left: 0, right: 0, top: 0, bottom: 0 } }));
+	      _this.setState(_extends({ dragging: true, dragged: true }, position, { styleFix: { left: 0, top: 0, bottom: "auto", right: "auto" } }));
 	    };
 
 	    _this.onDrag = function (e, coreData) {
