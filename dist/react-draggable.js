@@ -1098,7 +1098,7 @@
 	}
 
 	// Get from offsetParent
-	function offsetXYFromParent$1(evt /*: {clientX: number, clientY: number}*/, offsetParent /*: HTMLElement*/) /*: ControlPosition*/ {
+	function offsetXYFromParent(evt /*: {clientX: number, clientY: number}*/, offsetParent /*: HTMLElement*/) /*: ControlPosition*/ {
 	  var isBody = offsetParent === offsetParent.ownerDocument.body;
 	  var offsetParentRect = isBody ? { left: 0, top: 0 } : offsetParent.getBoundingClientRect();
 
@@ -1212,7 +1212,7 @@
 	  var bounds = draggable.props.bounds;
 
 	  bounds = typeof bounds === 'string' ? bounds : cloneBounds(bounds);
-	  var node = findDOMNode$1(draggable);
+	  var node = findDOMNode(draggable);
 
 	  if (typeof bounds === 'string') {
 	    var ownerDocument = node.ownerDocument;
@@ -1267,17 +1267,17 @@
 	function getControlPosition(e /*: MouseTouchEvent*/, touchIdentifier /*: ?number*/, draggableCore /*: DraggableCore*/) /*: ?ControlPosition*/ {
 	  var touchObj = typeof touchIdentifier === 'number' ? getTouch(e, touchIdentifier) : null;
 	  if (typeof touchIdentifier === 'number' && !touchObj) return null; // not the right touch
-	  var node = findDOMNode$1(draggableCore);
+	  var node = findDOMNode(draggableCore);
 	  // User can provide an offsetParent if desired.
 	  var offsetParent = draggableCore.props.offsetParent || node.offsetParent || node.ownerDocument.body;
-	  return offsetXYFromParent$1(touchObj || e, offsetParent);
+	  return offsetXYFromParent(touchObj || e, offsetParent);
 	}
 
 	// Create an data object exposed by <DraggableCore>'s events
 	function createCoreData(draggable /*: DraggableCore*/, x /*: number*/, y /*: number*/) /*: DraggableData*/ {
 	  var state = draggable.state;
 	  var isStart = !isNum(state.lastX);
-	  var node = findDOMNode$1(draggable);
+	  var node = findDOMNode(draggable);
 
 	  if (isStart) {
 	    // If this is our first move, use the x and y as last coords.
@@ -1321,7 +1321,7 @@
 	  };
 	}
 
-	function findDOMNode$1(draggable /*: Draggable | DraggableCore | PositionedDraggable*/) /*: HTMLElement*/ {
+	function findDOMNode(draggable /*: Draggable | DraggableCore | PositionedDraggable*/) /*: HTMLElement*/ {
 	  var node = ReactDOM.findDOMNode(draggable);
 	  if (!node) {
 	    throw new Error('<DraggableCore>: Unmounted during event!');
@@ -2119,7 +2119,7 @@
 
 
 	function getCurrentPosition(draggable) {
-	  var node = findDOMNode(draggable);
+	  var node = ReactDOM.findDOMNode(draggable);
 	  var rect = node.getBoundingClientRect();
 	  var offsetParent = draggable.props.offsetParent || node.offsetParent || node.ownerDocument.body;
 	  return offsetXYFromParent({ clientX: rect.left, clientY: rect.top }, offsetParent);
