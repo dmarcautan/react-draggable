@@ -1,12 +1,13 @@
-# React-Draggable
+# React-Draggable-Elements
 
-[![TravisCI Build Status](https://api.travis-ci.org/STRML/react-draggable.svg?branch=master)](https://travis-ci.org/strml/react-draggable)
-[![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true)](https://ci.appveyor.com/project/strml/react-draggable)
-[![npm downloads](https://img.shields.io/npm/dt/react-draggable.svg?maxAge=2592000)](http://npmjs.com/package/react-draggable)
-[![gzip size](http://img.badgesize.io/https://npmcdn.com/react-draggable/build/web/react-draggable.min.js?compression=gzip)]()
-[![version](https://img.shields.io/npm/v/react-draggable.svg)]()
+[![TravisCI Build Status](https://api.travis-ci.org/dmarcautan/react-draggable.svg?branch=master)](https://travis-ci.org/dmarcautan/react-draggable)
+[![npm downloads](https://img.shields.io/npm/dt/react-draggable-elements.svg?maxAge=2592000)](http://npmjs.com/package/react-draggable-elements)
+[![gzip size](http://img.badgesize.io/https://npmcdn.com/react-draggable-elements/build/web/react-draggable.min.js?compression=gzip)]()
+[![version](https://img.shields.io/npm/v/react-draggable-elements.svg)]()
 
 A simple component for making elements draggable.
+
+**[IMPORTANT]** This is a fork of original React-Draggable lib that adds new PositionedDraggable component which is basically a clone of Draggable component with the exception that it won't default on initial position of container (0,0) but instead will allow to position it by the client code. On the initial drag the position will be set to its current position.
 
 ```js
 <Draggable>

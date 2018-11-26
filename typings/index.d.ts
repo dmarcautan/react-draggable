@@ -1,4 +1,4 @@
-declare module 'react-draggable' {
+declare module 'react-draggable-elements' {
   import * as React from 'react';
 
   export interface DraggableBounds {
@@ -17,6 +17,10 @@ declare module 'react-draggable' {
     defaultPosition: ControlPosition,
     positionOffset: PositionOffsetControlPosition,
     position: ControlPosition
+  }
+
+  export interface PositionedDraggableProps extends DraggableProps {
+    defaultPosition: never
   }
 
   export type DraggableEvent = React.MouseEvent<HTMLElement | SVGElement>
@@ -57,6 +61,10 @@ declare module 'react-draggable' {
 
   export default class Draggable extends React.Component<Partial<DraggableProps>, {}> {
     static defaultProps : DraggableProps;
+  }
+
+  export class PositionedDraggable extends React.Component<Partial<PositionedDraggableProps>, {}> {
+    static defaultProps : PositionedDraggableProps;
   }
 
   export class DraggableCore extends React.Component<Partial<DraggableCoreProps>, {}> {
