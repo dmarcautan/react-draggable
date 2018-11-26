@@ -7,6 +7,7 @@
 [![version](https://img.shields.io/npm/v/react-draggable.svg)]()
 
 A simple component for making elements draggable.
+! This is a fork of original React-Draggable that adds a new PositionedDraggable component that it is basically a clone of Draggable component with the exception that it won't default on initial position of container (0,0) but instead will allow to position it outside of the component. On first drag the position will be set to its current position.
 
 ```js
 <Draggable>
