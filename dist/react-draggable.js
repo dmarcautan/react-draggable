@@ -2294,7 +2294,6 @@
 	      var draggable = !controlled || this.state.dragging;
 
 	      if (this.state.dragged || this.props.position) {
-	        style = _extends({}, this.state.styleFix);
 	        var _position = this.props.position || this.props.defaultPosition;
 	        var transformOpts = {
 	          // Set left if horizontal drag is enabled
@@ -2314,6 +2313,8 @@
 	          // has a clean slate.
 	          style = createCSSTransform(transformOpts);
 	        }
+
+	        style = _extends({}, this.state.styleFix, style);
 	      }
 
 	      var _props = this.props,
