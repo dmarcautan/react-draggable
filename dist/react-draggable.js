@@ -2115,6 +2115,7 @@
 	  defaultClassNameDragged: string,
 	  defaultPosition: ControlPosition,
 	  position: ControlPosition,
+	  styleFix: Object
 	};*/
 
 
@@ -2148,7 +2149,7 @@
 	      if (!_this.state.dragged && !_this.props.position) {
 	        position = getCurrentPosition(_this);
 	      }
-	      _this.setState(_extends({ dragging: true, dragged: true }, position));
+	      _this.setState(_extends({ dragging: true, dragged: true }, position, { styleFix: { left: 0, right: 0, top: 0, bottom: 0 } }));
 	    };
 
 	    _this.onDrag = function (e, coreData) {
@@ -2245,7 +2246,8 @@
 	      slackX: 0, slackY: 0,
 
 	      // Can only determine if SVG after mounting
-	      isElementSVG: false
+	      isElementSVG: false,
+	      styleFix: {}
 	    };
 	    return _this;
 	  }
@@ -2292,6 +2294,7 @@
 	      var draggable = !controlled || this.state.dragging;
 
 	      if (this.state.dragged || this.props.position) {
+	        style = _extends({}, this.state.styleFix);
 	        var _position = this.props.position || this.props.defaultPosition;
 	        var transformOpts = {
 	          // Set left if horizontal drag is enabled
